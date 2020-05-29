@@ -1,8 +1,8 @@
 package aplication;
 
+import java.util.Date;
 import java.util.List;
 
-import model.Dao.Impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 import modelDao.DaoFactory;
@@ -19,19 +19,21 @@ public class Program_Dao_JDBC {
 		System.out.println(seller);
 
 		System.out.println("\n====Teste 02 : FindByDepartment=====");
-
 		Department department = new Department(2, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
 		System.out.println("\n====Teste 03 : FindAll=====");
-
 		list = sellerDao.findAll();
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
 
+		System.out.println("\n====Teste 04 : SellerInsert=====");
+		Seller newseller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4500.0, department);
+		sellerDao.insert(newseller);
+		System.out.println("Inserido novo Id : " + newseller.getId());
 	}
 
 }
