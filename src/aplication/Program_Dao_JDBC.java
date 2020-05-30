@@ -24,16 +24,22 @@ public class Program_Dao_JDBC {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
-		System.out.println("\n====Teste 03 : FindAll=====");
+		/*System.out.println("\n====Teste 03 : FindAll=====");
 		list = sellerDao.findAll();
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
 
-		System.out.println("\n====Teste 04 : SellerInsert=====");
+		System.out.println("\n====Teste 04 : Seller Insert=====");
 		Seller newseller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4500.0, department);
 		sellerDao.insert(newseller);
-		System.out.println("Inserido novo Id : " + newseller.getId());
+		System.out.println("Inserido novo Id : " + newseller.getId()); */
+		
+		System.out.println("\n====Teste 05 : Seller  Update=====");
+		seller = sellerDao.finfById(1);
+		seller.setName("Valdemir");
+		sellerDao.update(seller);
+		System.out.println("Feito atualização :" );
 	}
 
 }
