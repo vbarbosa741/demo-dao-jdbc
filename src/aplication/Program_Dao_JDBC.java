@@ -2,6 +2,7 @@ package aplication;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.entities.Department;
 import model.entities.Seller;
@@ -12,6 +13,7 @@ public class Program_Dao_JDBC {
 
 	public static void main(String[] args) {
 
+		Scanner sc = new java.util.Scanner(System.in);
 		SellerDao sellerDao = new DaoFactory().createSellerDao();
 
 		System.out.println("====Teste 01 : FindById =====");
@@ -24,13 +26,13 @@ public class Program_Dao_JDBC {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
-		/*System.out.println("\n====Teste 03 : FindAll=====");
+		System.out.println("\n====Teste 03 : FindAll=====");
 		list = sellerDao.findAll();
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
 
-		System.out.println("\n====Teste 04 : Seller Insert=====");
+		/*System.out.println("\n====Teste 04 : Seller Insert=====");
 		Seller newseller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4500.0, department);
 		sellerDao.insert(newseller);
 		System.out.println("Inserido novo Id : " + newseller.getId()); */
@@ -40,6 +42,13 @@ public class Program_Dao_JDBC {
 		seller.setName("Valdemir");
 		sellerDao.update(seller);
 		System.out.println("Feito atualização :" );
+		
+		System.out.println("\n====Teste 06 : Seller  Delete=====");
+		System.out.print("Favor informar o id para deletar : ");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Realizado o delete !!");
+		
 	}
 
 }
